@@ -1,9 +1,9 @@
 # create security group for the web server
 # terraform aws create security group
 resource "aws_security_group" "webserver_security_group" {
-  name        = "web-sg"
+  name        = "dev-sg"
   description = "enable http/https access on port 80/443 via alb sg and access on port 22 via ssh sg"
-  vpc_id      = 
+  vpc_id      = aws_vpc.vpc.id
 
   ingress {
     description      = "http access"
